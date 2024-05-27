@@ -1,0 +1,16 @@
+---
+
+- name: Instalation et configuration d'Apache
+  hosts: webservers
+  become: yes
+  tasks:
+    - name: Installer Apache
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+    - name: Ensure Apache is runing
+      service:
+        name: apache2
+        starte: started
+        enabled: yes

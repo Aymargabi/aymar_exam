@@ -1,0 +1,11 @@
+---
+- name: Automatic 
+  hosts:  R1
+  connection: local
+  
+  tasks:
+    - name: affichage configuration
+      ios_command:
+        commands:
+           - show running-config
+      register: config
